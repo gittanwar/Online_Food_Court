@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Court</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .head{
+            background-color:LightGray;
+            padding: 3px;
+            width:100%;
+            left:50%;
+            top:0;
+        }
+        li{
+        
+        display:inline-block;
+        width:150px;
+        }
+        li a{
+        color:coral;
+        width:50px;
+        word-spacing:1.2;
+        font-size:20px;
+        }
+        li a:hover{
+        color:black;
+        }
+
+        .small_box{
+        background-color:transparent;
+        width:40%;
+        float:left;
+        height:35vh;
+        border-radius:8px;
+        border:2px brown solid;
+        margin:8px;
+        padding:8px;
+        text-align:center;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body bgcolor="white">
+{% load static %}
+<!-- <div style="height:85vh; width:90%;background-size:cover;background-image:url({% static 'images/ordr.jpg' %});"> -->
+    <div class="head">
+        <div>
+            <ul>
+                <li><a href="/food"><b>Food</b></a><li>
+                <li><a href="/order"><b>Order</b></a><li>
+                <li><a href="/restaurant"><b>Restaurant</b></a><li>
+                <li><a href="/user"><b>User</b></a><li>
+            </ul>
+        </div>
+   </div>
+</div>
+
+<div>
+    <div id="demo" class="carousel slide" data-ride="carousel"data-interval="3000">
+        <ul class="carousel-indicators">
+          <li data-target="#my-carousel" data-slide-to="0"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner"role="listbox">
+          <div class="carousel-item active">
+            <img src="{% static 'images/19.jpg'%}" alt="starbux restaurant" width="1260px" height="600px">
+            <div class="carousel-caption">
+              <h3>starbucks restaurant</h3>
+              <p>We had such a great time in starbucks restaurant!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="#"><img src="{% static 'images/b.jpg.jpg'%}" alt="milan restaurant" width="1260px" height="600px"></a>
+            <div class="carousel-caption" >
+              <h3>milan restaurant</h3>
+              <p>Thank you, milan!</p>
+      
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/1.jpg' %}" alt="Raddisson blue " width="1260px" height="600px">
+            <div class="carousel-caption" >
+              <h3>Raddi</h3>
+              <p>We love the Big Apple!</p>
+      
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+
+
+
+
+<div style="background-color:#eb953f">
+<!---->
+    <section class="my-5">
+<div  class="py-6">
+<h2 class="text-center" style="color:white" >Welcome to our food court</h2>
+</div>
+
+    <div class="container-fluid">
+  <div class="row">
+   <div  class="col-lg-6 col-mg-6 col-12">
+<img src="{% static 'images/78.jpg'%}" height="270px" width="550px">
+   </div>
+
+   <div class="col-lg-6 col-mg-6 col-12">
+   <h3>chocolate flavor</h3>
+   <pre style="font-style:italic;"color=white">Chocolate cake,with its fuggy-yet-fluffy
+       layers and swirls of creamy frosting,is synonymous with the leg-twi
+       -ting leg-twisting delight you felt as a kid,tackling a slice  the
+       size of your head and getting it all over your face in the process.
+       It is a first date, butterflies in your stomach shared dessert — two
+       forks.And it is a big birthday celebration, with too many candles to
+       with too many candles to count. It is all of these things; it is the
+       the ultimate celebration food.Chocolate cake is always a good idea.
+
+   </pre>
+       <a href="#">view</a>
+
+
+
+
+            </div>
+   </div>
+    </div>
+</section>
+
+
+<section class="my-5">
+<div class="py-6">
+<h2 class="text-center"> food services</h2>
+</div>
+
+
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-12">
+    <div class="card">
+            <img class="card-img-top" src="{% static 'images/i2.jpg'%}" alt="Card image"height=360px" width=500px">
+            <div class="card-body">
+            <h4 class="card-title">taj hotel</h4>
+            <p class="card-text">Taj Mahal is home to much-celebrated multi-cuisine
+                and fine-dining speciality restaurants in Delhi.
+                Connoisseurs enjoy the authentic Chinese, Southeast Asian, European,
+                new-age Indian and other cuisines on offer in stunning settings.
+                Reserve a table now to enjoy blissful culinary experience.</p>
+            <a href="#" class="btn btn-primary">tour to hotel</a>
+            </div>
+            </div>
+
+    </div>
+
+        <div class="col-lg-4 col-md-4 col-12">
+    <div class="card">
+            <img class="card-img-top" src="{% static 'images/i1.png'%}" alt="Card image"height=380px" width=500px">
+            <div class="card-body">
+            <h4 class="card-title">hotel plaza</h4>
+            <p class="card-text">Food and Beverage: We have amended our offerings
+                for both breakfast and beyond in accordance with local requirements
+                and to safeguard the well being of our guests and colleagues.
+                Please speak to one of our team members to find out more..</p>
+            <a href="#" class="btn btn-primary">tour to hotel plaza</a>
+  </div>
+</div>
+
+    </div>
+
+
+    <div class="col-lg-4 col-md-4 col-12">
+    <div class="card">
+            <img class="card-img-top" src="{% static 'images/i5.jpg'%}" alt="Card image"height=480px" width=500px">
+            <div class="card-body">
+            <h4 class="card-title">restro at home</h4>
+            <p class="card-text">awesome.</p>
+            <a href="#" class="btn btn-primary">tour</a>
+  </div>
+</div>
+
+    </div>
+
+
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</div>
+
+
+
+
+
+
+
+<!--    <div class="small_box">-->
+<!--        -->
+<!--   -->
+<!--    {%  csrf_token %}-->
+<!--    {%  for rest in rests %}-->
+<!--    -->
+<!--      <table>-->
+<!--        <tr>-->
+<!--          <td >-->
+<!--            <img height="200px" width="400px" src="{{ rest.r_image.url }}"/>-->
+
+<!--          </td>-->
+<!--          <td><div style="width: 600px; margin-left: 16px;">-->
+<!--                <h3>{{ rest.r_name }}</h3>-->
+<!--                <p>-->
+<!--                  Verdana is the default font used in W3.CSS. Verdana has a good letter spacing, and is easy to read. Verdana is also the default font for W3Schools.-->
+<!--        -->
+<!--                  Segoe UI is the default font for headings. Segoe UI has a more narrow letter spacing. This allows for a few more letters in the headings.-->
+<!--                 </p>-->
+<!--                <p>Place :  <b>{{ rest.r_town }}</b>         Contact :<b>{{ rest.r_mobile }}</b> </p>-->
+<!--              -->
+<!--                &lt;!&ndash; <a href="{% url 'fooditem' %}" type="submit">Click For Order</a> &ndash;&gt;-->
+
+<!--          </div>-->
+<!--        </td>-->
+<!--        <div style="width: 1250px; height: 50px; background-color:rgb(42, 99, 99);"><h2 style="text-align: center; margin-top:2px;"> LISTS OF RESTAUTANTS</h2></div>-->
+<!--    -->
+<!--   -->
+<!--    &lt;!&ndash; {%  csrf_token %}-->
+<!--    {%  for rest in rests %}-->
+<!--    <div class="small_box">-->
+<!--      <table>-->
+<!--        <tr>-->
+<!--          <td >-->
+<!--            <img height="200px" width="400px" src="{{ rest.r_image.url }}"/>-->
+
+<!--          </td>-->
+<!--          <td><div style="width: 600px; margin-left: 16px;">-->
+<!--                <h3>{{ rest.r_name }}</h3>-->
+<!--                <p>-->
+<!--                  Verdana is the default font used in W3.CSS. Verdana has a good letter spacing, and is easy to read. Verdana is also the default font for W3Schools.-->
+<!--        -->
+<!--                  Segoe UI is the default font for headings. Segoe UI has a more narrow letter spacing. This allows for a few more letters in the headings.-->
+<!--                 </p>-->
+<!--                <p>Place :  <b>{{ rest.r_town }}</b>         Contact :<b>{{ rest.r_mobile }}</b> </p> &ndash;&gt;-->
+<!--              -->
+<!--                <a href="{% url 'fooditem' %}" type="submit">Click For Order</a>-->
+
+<!--          </div>-->
+<!--        </td>-->
+<!--        -->
+<!--          -->
+<!--    </tr>-->
+<!--</table>-->
+
+<!--    -->
+
+<!--    </div>-->
+
+<!--    &lt;!&ndash; {% endfor %} &ndash;&gt;-->
+<!--     -->
+<!--        <div style="color:red">-->
+<!--            <li>{{i.u_name}}</li>-->
+<!--        <li>{{i.state}}</li>-->
+<!--    </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--    -->
+
+    <!-- - <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div> -->
+</div>
+</body>
+</html>

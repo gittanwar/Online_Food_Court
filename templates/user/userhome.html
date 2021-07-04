@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Court</title>
+
+    <style>
+        .head{
+            background-color:transparent;
+            padding:16px;
+            width:100%;
+            left:50%;
+            top:0;
+        }
+        li{
+        
+        display:inline-block;
+        width:150px;
+        }
+        li a{
+        color:white;
+        width:50px;
+        border: royalblue;
+        padding: 2px 12px;
+        border-radius: 2px;
+        
+        font-size:20px;
+        }
+        li a:hover{
+        color:red;
+        }
+
+        .small_box{
+        background-color:transparent;
+        width:40%;
+        float:left;
+        height:35vh;
+        border-radius:8px;
+        border:2px brown solid;
+        margin:8px;
+        padding:8px;
+        text-align:center;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body bgcolor="white">
+{% load static %}
+
+
+<!--div style="height:85vh; width:90%;background-size:cover;background-image :url "({% static 'images/u.jpeg' %});"--->
+    <div class="head">
+        <div>
+            <ul>
+                <li><a href="/food"><b>Food</b></a><li>
+                <li><a href="/order"><b>Order</b></a><li>
+                <li><a href="/restaurant"><b>Restaurant</b></a><li>
+                <li><a href="/user"><b>User</b></a><li>
+            </ul>
+            <img src="{% static 'images/u.jpeg' %}" alt="My image" height="500px" width="1250px">
+        </div>
+   </div>
+</div>
+
+
+<!--  -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:gray;" >
+
+<div class="container">
+  <h2>search Food items</h2>
+  <p>Type something in the input field to search the table for food names, food_id or restaurant name:</p>
+  <input style="background-color: lightpink; color: black;" class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+
+    <thead>
+      <tr>
+        <th><b>Name of food</b></th>
+        <th><b>$Price</b></th>
+        <th><b>Food_Id</b></th>
+        <th><b>Restaurant_Name</b></th>
+
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td><a href=" {% url 'fooditem' %}"><img src="{% static 'images/cakes/apple pie.jpg'%}" height="100px" width="300px" ></a> resp-cake</td>
+        <td> $199</td>
+        <td>101</td>
+        <td>milan</td>
+      </tr>
+      <tr>
+        <td><img src="{% static 'images/cakes/vanilla.jpg'%}" height="100px" width="300px">vanilla cake</td>
+        <td>$56</td>
+        <td>102</td>
+        <td>murthal</td>
+      </tr>
+      <tr>
+        <td><img src="{% static 'images/cakes/choclate cup cakes.jpg'%}" height="100px" width="300px">choko-cake</td>
+        <td>$69</td>
+        <td>103</td>
+        <td>indian cake </td>
+      </tr>
+      <tr>
+        <td><img src="{% static 'images/cakes/banana-cake.jpg'%}" height="100px" width="300px">banana-cake</td>
+        <td>$99</td>
+        <td>104</td>
+        <td>A-reataurant</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+<!-- <div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products
+            available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div>
+    <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div> -->
+</div>
+</body>
+</html>

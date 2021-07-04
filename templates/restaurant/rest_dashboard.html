@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Dashboard</title>
+    <style>
+        .order_list{
+            width:90%;
+            margin:auto;
+            padding:16px;
+            float:left;
+            border:10px red solid;
+            background-color:pink;
+            text-align:center;
+        }
+        table{
+        border:1px brown solid;
+        width:100%;
+        border-spacing:2px;
+        }
+
+        th,td{
+            border:1px brown solid;
+            width:40%;
+            color:brown;
+            padding:12px;
+
+        }
+        .heading{
+            text-align:center;
+            background-color:#125abc;
+            color:white;
+            padding:8px;
+            margin-bottom:8px;
+            margin:auto;
+        }
+button{
+        width:100%;
+        background-color:brown;
+        padding:16px;
+        margin-top:8px;
+        color:white;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="order_list">
+    <table>
+        <caption class="heading">Your Food Items</caption>
+        <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Action</th>
+
+        </tr>
+        {% for item in f %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+             <td><a href="/food/item/delete?sno={{item.id}}">Delete</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+<!--<div class="order_list">-->
+
+<!--    <table>-->
+<!--        <caption class="heading">Order Against Your Restaurant</caption>-->
+<!--        <tr>-->
+<!--            <th>Food Name</th>-->
+<!--            <th>Quantity</th>-->
+<!--            <th>UserName</th>-->
+<!--            <th>Action</th>-->
+
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Court</title>
+
+    <script>
+        function showCartDialog(var itemId, var ItemName){
+        document.getElementById("abc").style.display = "block";
+        document.getElementById("abc2").style.display = "none";
+      }
+
+    </script>
+    <!--<style>
+        .head{
+            background-color:transparent;
+            padding:16px;
+            width:100%;
+            left:50%;
+            top:0;
+        }
+        li{
+        
+        display:inline-block;
+        width:150px;
+        }
+        li a{
+        color:white;
+        width:50px;
+        
+        font-size:20px;
+        }
+        li a:hover{
+        color:grey;
+        }
+
+        .small_box{
+        background-color:transparent;
+        width:40%;
+        float:left;
+        height:35vh;
+        border-radius:8px;
+        border:2px brown solid;
+        margin:8px;
+        padding:8px;
+        text-align:center;
+        }
+
+
+
+
+    </style>-->
+
+</head>
+<body>
+<a href="/food/cart">GO to Cart</a>
+<div>
+
+    {% for item in items %}
+    <div style="display:inline-block;padding-left: 65px;margin-top: 40px;">
+        <img src="{{ item.food_image.url }}" alt="photo" width="200px" height="200px">
+        <h3>NAME: &nbsp{{ item.name}}</h3>
+        <h3>PRICE: &nbsp {{ item.price }}</h3>
+        <h3>RESTAURANT: &nbsp {{ item.restaurant }}</h3>
+
+        <form action="/food/menu/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input style="width:40px" type="number" value="1" name="item_count">
+            <input  style="display:none" type="number" value="{{item.id}}" name="item_id">
+            <input type="submit" value="add to cart" style="decoration:none"/>
+        </form>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+</body>
+</html> 

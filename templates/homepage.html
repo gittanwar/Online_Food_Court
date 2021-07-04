@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Online Food Court</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <style>
+    .head {
+      background-color:burlywood;
+      padding: 3px;
+      width: 100%;
+      left: 50%;
+      top: 0;
+      color: black;
+
+    }
+
+    li {
+
+      display: inline-block;
+      width: 150px;
+    }
+
+    li a {
+      color: rgb(19, 11, 11);
+      width: 50px;
+      /* word-spacing:1.2; */
+      padding: 1px 16px;
+      font-size: 20px;
+    }
+
+    li a:hover {
+      color: red;
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: blues;
+    }
+
+    .small_box {
+      background-color: transparant;
+      width: 96%;
+      float: left;
+      height: 260px;
+      border-radius: 8px;
+      border: 2px brown solid;
+      margin: 18px;
+      padding: 16px;
+
+
+    }
+  </style>
+
+</head>
+
+<body bgcolor="lightgrey">
+
+  <div>
+    <div class="head">
+      <div>
+        <ul>
+          <li><a href="/food/menu"><b>Food</b></a>
+          <li>
+          <li><a href="/food/order"><b>Order</b></a>
+          <li>
+          <li><a href="/restaurant"><b>Restaurant</b></a>
+          <li>
+          <li><a href="/user"><b>User</b></a>
+          <li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <ul class="carousel-indicators">
+      
+      <li data-target="#my-carousel" data-slide-to="0"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img src="{% static 'images/hhh.jpg'%}" alt="starbux restaurant" width="1260px" height="500px">
+        <div class="carousel-caption">
+          <!--  -->
+      
+          <h3>starbucks restaurant</h3>
+          <p>We had such a great time in starbucks restaurant!</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="#"><img src="{% static 'images/r3.jpg'%}" alt="milan restaurant" width="1260px" height="500px"></a>
+        <div class="carousel-caption">
+          <h3>milan restaurant</h3>
+          <p>Thank you, milan!</p>
+
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/nice.jpg' %}" alt="Raddisson blue " width="1260px" height="500px">
+        <div class="carousel-caption">
+          <h3>Raddisson restaurant</h3>
+          <p>We love the Big Apple!</p>
+
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+
+
+    <!--<div style="height:600px; width:100%;background-size:cover;background-image:url({% static 'images/nice.jpg' %});">-->
+    <!--    <div class="head">-->
+    <!--        <div>-->
+    <!--            <ul>-->
+    <!--                <li><a href="/food"><b>Food</b></a><li>-->
+    <!--                <li><a href="/order"><b>Order</b></a><li>-->
+    <!--                <li><a href="/restaurant"><b>Restaurant</b></a><li>-->
+    <!--                <li><a href="/user"><b>User</b></a><li>-->
+    <!--            </ul>-->
+    <!--        </div>-->
+    <!--   </div>-->
+    <!--</div>-->
+
+
+
+
+    <div style="width: 1250px; height: 50px; background-color:rgb(42, 99, 99);">
+      <h2 style="text-align: center;margin-top: 15px;"> LISTS OF RESTAUTANTS</h2>
+    </div>
+
+
+    {% csrf_token %}
+    {% for rest in rests %}
+    <div class="small_box">
+      <table>
+        <tr>
+          <td>
+            <img height="200px" width="400px" src="{{ rest.r_image.url }}" />
+
+          </td>
+          <td>
+            <div style="width: 600px; margin-left: 16px;">
+              <h3>{{ rest.r_name }}</h3>
+              <p>
+                Online food Court has been created by a team that is extremely passionate about food, wine and all things fine.
+                As a collective group of Chefs and Hoteliers who have worked in some of the best hotels and restaurants
+                around the world, we were always on the lookout for new dining experiences and exciting cuisines. 
+                It is this love and passion for eating and exploring that brought us together to create food Court.
+              </p>
+              <p>Place : <b>{{ rest.r_town }}</b> Contact :<b>{{ rest.r_mobile }}</b> </p>
+
+              <a href="/food/individual?rest={{ rest.r_mobile }}" type="submit">Click For Order</a>
+
+            </div>
+          </td>
+          <td>
+
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+    {% endfor %}
+
+    <!-- this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent update based on availability and offer’s provided.
+        </p> 
+        <h2>{{ rest.r_name }}</h2>
+        <h4>{{ rest.r_town }}</h4>
+        <h4>{{ rest.r_mobile }}</h4>
+        <img height='100' width='100' src="{{ rest.r_image.url }}"/>
+    </div> 
+    <div class="small_box"> -->
+    <!-- <h2>milan restaurant</h2>
+        <p>
+            In 
+    - <div class="small_box">
+         <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent update based on availability and offer’s provided.
+        </p> 
+        <h2>{{ rest.r_name }}</h2>
+        <h4>{{ rest.r_town }}</h4>
+        <h4>{{ rest.r_mobile }}</h4>
+        <img height='100' width='100' src="{{ rest.r_image.url }}"/>
+    </div> -->
+    <!-- <div class="small_box">
+         <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent update based on availability and offer’s provided.
+        </p> 
+        <h2>{{ rest.r_name }}</h2>
+        <h4>{{ rest.r_town }}</h4>
+        <h4>{{ rest.r_mobile }}</h4>
+        <img height='100' width='100' src="{{ rest.r_image.url }}"/>
+    </div> -->
+  </div>
+</body>
+
+</html>

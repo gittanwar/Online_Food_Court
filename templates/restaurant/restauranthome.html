@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Court</title>
+  <script>
+      function displayLogin(){
+        document.getElementById("abc").style.display = "block";
+        document.getElementById("abc2").style.display = "none";
+      }
+      function displayRegistration(){
+        document.getElementById("abc2").style.display = "block";
+        document.getElementById("abc").style.display = "none";
+      }
+      function hide(){
+        document.getElementById("abc").style.display = "none";
+}
+  </script>
+
+    <style>
+        .head{
+           position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+        .btn{
+            border:none rgb(206, 89, 89) solid;
+            background-color: white;
+            padding: 10px 30px;
+            color: rgb(88, 10, 10);
+            text-decoration: none;
+            transition: 0.5s ease;
+        }
+        .submit{
+            border: 2px white solid;
+            padding: 10px 30px;
+            color: white;
+            background-color:#008abc;
+            border-radius:8px;
+
+            text-decoration: none;
+            transition: 0.5s ease;
+        }
+
+        .inp_box{
+            display:none;
+            border: 2px brown solid;
+            padding: 30px;
+            border-radius:8px;
+            background-color:brown;
+            text-decoration: none;
+            transition: 0.5s ease;
+            position: absolute;
+            left:50%;
+            top:50%;
+            text-align:center;
+            transform: translate(-50%, -50%);
+            z-index:9;
+        }
+            input{
+            padding: 12px;
+            color: black;
+            text-decoration: none;
+            transition: 0.5s ease;
+        }
+
+        .btn:hover{
+            color: rgb(18, 202, 202);
+            background-color:white;
+        }
+     .small_box{
+     background-color:transparent;
+     width:95%;
+     float:left;
+     height: 260px;;
+     border-radius:8px;
+     border:2px brown solid;
+     margin:8px;
+     padding: 16px;
+    
+}
+     </style>
+
+</head>
+<body bgcolor="white">
+{% load static %}
+<div onclick="close()"style="height:120vh; width:100%;background-size:cover;background-image:url({% static 'images/res.jpg' %});">
+    <div class="head">
+        <div>
+            <a class="btn" href="javascript:void" onclick="displayLogin()"><b>Already Registered? Sign In</b></a>
+            <a class="btn" href="#" onclick="displayRegistration()"><b>Add New Restaurant</b></a>
+        </div>
+        <div  id="abc" class="inp_box">
+            <h3 style="color:white;">Sign In for Restaurant</h3>
+            <form action="/restaurant/login" method= "POST" enctype = "multipart/form-data">
+                {% csrf_token %}
+
+                <input type="text" name="restro" placeholder="Restaurant mobile" required><br><br>
+                <input type="password" name="pass" placeholder="Password here" required><br><br>
+                <input class="submit" type="submit" value="Login"><br><br>
+            </form>
+
+         </div>
+        <div  id="abc2" class="inp_box">
+            <h3 style="color:white;">Add New Restaurant</h3>
+            <form method = "post" action="/restaurant/" enctype = "multipart/form-data" >
+            {%  csrf_token %}
+
+                {% for field in f %}
+
+                <label style=" display:inline-block; width:70px; color:white;">{{ field.label }} : </label>
+                {{ field }}<br>
+                {% endfor %}
+
+                <input class="submit" type="submit" value="Save My Restaurant"><br><br>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--<div>-->
+
+ 
+<!--<div class="small_box">-->
+
+
+
+<!--        <table>-->
+<!--            <tr>-->
+<!--              <td >-->
+<!--                <img height="200px" width="400px" src="{{ rest.r_image.url }}"/>-->
+<!--    -->
+<!--              </td>-->
+<!--              <td><div style="width: 600px; margin-left: 16px;">-->
+<!--                {% for rest in f %}-->
+<!--                    <h3>{{ rest.r_name }}</h3>-->
+<!--                    <p>-->
+<!--                      Verdana is the default font used in W3.CSS. Verdana has a good letter spacing, and is easy to read. Verdana is also the default font for W3Schools.-->
+<!--            -->
+<!--                      Segoe UI is the default font for headings. Segoe UI has a more narrow letter spacing. This allows for a few more letters in the headings.-->
+<!--                     </p>-->
+<!--                    <p>Place :  <b>{{ rest.r_town }}</b>         Contact :<b>{{ rest.r_mobile }}</b> </p>-->
+<!--                  -->
+<!--                    <a href="{% url 'fooditem' %}" type="submit">Click For Order</a>-->
+<!--    -->
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td >-->
+<!--             -->
+<!--    -->
+<!--            </td>-->
+<!--              -->
+<!--            </tr>-->
+<!--    -->
+<!--          </table>-->
+<!--          {% endfor %}-->
+<!--        &lt;!&ndash; <h2>Restaurant</h2>-->
+<!--        <p>-->
+<!--            In this module the administrator is facilitated to showcase the food products-->
+<!--            available and their Price list.-->
+<!--            This module helps in making frequent updation based on availability and offer’s provided.-->
+<!--        </p> &ndash;&gt;-->
+<!--    </div>-->
+
+    <!-- <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div> -->
+    <!-- <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div> -->
+    <!-- <div class="small_box">
+        <h2>Restaurant</h2>
+        <p>
+            In this module the administrator is facilitated to showcase the food products available and their Price list.
+            This module helps in making frequent updation based on availability and offer’s provided.
+        </p>
+    </div> -->
+</div>
+</body>
+</html>
